@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}
+    Категории
+{% endblock %}
+
+{% block content %}
+    <h1>Категории товаров</h1>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Наименование</th>
+            <th scope="col">Родитель</th>
+        </tr>
+        </thead>
+
+        <tbody class="table-group-divider">
+        {% for category in categories %}
+            <tr>
+                <th scope="row">{{ category.id }}</th>
+                <td>{{ category.name }}</td>
+                <td>{{ category.parent }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

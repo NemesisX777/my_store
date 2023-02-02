@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}
+    Номенклатура
+{% endblock %}
+
+{% block content %}
+    <h1>Список товаров</h1>
+
+    <p><h3>Django template based table</h3></p>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Наименование</th>
+            <th scope="col">Категория</th>
+            <th scope="col">Цена, руб.</th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+        {% for product in products %}
+            <tr>
+                <th scope="row">{{ product.id }}</th>
+                <td>{{ product.name }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.price }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <p>Всего товаров: {{ products|length }}</p>
+
+
+    {% verbatim %}
+    <div  id="products_app">
+        <p>
+        <h3>Vue.js based table</h3></p>
+
+        <select>
+            <option v-for="category in categories">{{ category.name }}</option>
+        </select>
+
+        <table class="table table-bordered table-striped">
+
+            <thead class="table-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Наименование</th>
+                <th scope="col">Категория</th>
+                <th scope="col">Цена, руб.</th>
+            </tr>
+            </thead>
+
+            <tbody class="table-group-divider">
+            <tr v-for="product in products">
+                <th scope="row">{{ product.id }}</th>
+                <td>{{ product.name }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.price }}</td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+    {% endverbatim %}
+
+{% endblock %}
