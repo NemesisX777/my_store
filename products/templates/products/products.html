@@ -6,7 +6,7 @@
 {% block content %}
     <h1>Список товаров</h1>
 
-    <p><h3>Django template based table</h3></p>
+    <p><h3>Таблица на чистой Джанге</h3></p>
 
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
@@ -33,9 +33,9 @@
 
 
     {% verbatim %}
-    <div  id="products_app">
+    <div id="products_app">
         <p>
-        <h3>Vue.js based table</h3></p>
+        <h3>Таблица на Vue.js</h3></p>
 
         <select>
             <option v-for="category in categories">{{ category.name }}</option>
@@ -64,5 +64,7 @@
         </table>
     </div>
     {% endverbatim %}
+
+    <div id="root"></div>
 
 {% endblock %}
