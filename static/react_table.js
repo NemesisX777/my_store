@@ -26,7 +26,7 @@ const ExampleComponent = () => {
     }, [selectedValue]);
 
     return (<div>
-        <p><h3>Таблица на React.js</h3></p>
+        <h3>Таблица на React.js</h3>
         <select onChange={(e) => setSelectedValue(e.target.value)}>
             <option value="">Select an option</option>
             {options.map((option) => (<option key={option.id} value={option.id}>
